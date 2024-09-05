@@ -54,7 +54,7 @@ To run this project locally:
 2. Set up a local server (e.g., XAMPP, MAMP, WAMP).
 
 3. Start your server and navigate to the project directory in your browser:
-   ``arduino
+   ```arduino
    http://localhost/php-technical-notes
 
 ## Usage
