@@ -1,0 +1,115 @@
+ *{
+  box-sizing: border-box;
+}
+
+html, body{
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body{
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+nav > header{
+  font-size: 4vw;
+  margin: 20px;
+}
+
+nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 300px;
+  min-width: 300px;
+  height: 100%;
+  border-right: 1px solid rgb(100 ,100 ,100);
+  
+}
+
+
+nav > ul{
+  margin: 0;
+  padding: 0;
+}
+
+nav > ul > li{
+  list-style-type: none;
+  position:relative;
+  padding: 20px;
+  width: 100%;
+  border-top: 0.5px solid black;
+  
+}
+
+nav > ul > li > a{
+  text-decoration: none;
+  color: gray;
+  font-size: 3vw;
+}
+
+#main-doc{
+  margin-left: 310px;
+  margin-top: 15px;
+  padding: 30px;
+  width:calc(100% - 300px);
+  overflow-x: hidden;
+  flex: 1;
+}
+
+section > header{
+  font-size: 24px;
+  font-weight: 700;
+}
+
+section{
+  margin-bottom: 50px;
+}
+
+main p, li{
+  color: rgb(100 ,100 ,100);
+
+}
+
+pre{
+  background-color: rgba(80 ,80 ,80, 30%);
+  padding: 20px;
+  white-space: pre-wrap; /* Wrap long lines of text */
+  overflow-x: auto;      /* Add horizontal scroll if needed */
+  max-width: 100%; 
+  border-radius: 5px; 
+}
+
+span{
+  font-weight: 700;
+  color: black;
+}
+
+main li{
+  margin-bottom: 15px;
+}
+
+main p, pre{
+  margin-left: 15px;
+}
+
+
+/* media queries */
+
+@media (max-width: 400px){
+ 
+  nav {
+    position: static; /* Flow naturally */
+    width: 100%; /* Full width */
+    height: auto;
+    border-right: none; /* Remove right border */
+     border-bottom: 1px solid rgb(100 ,100 ,100);
+  }
+  #main-doc {
+    margin-left: 0; /* No left margin */
+    width: 100%; /* Full width */
+    height: auto;
+  }
+}
