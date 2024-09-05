@@ -9,14 +9,13 @@ A personal project designed to showcase PHP technical knowledge through an inter
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Code Structure](#code-structure)
 - [Screenshots](#screenshots)
 - [License](#license)
   
 ## Demo
 
-You can view a live demo of the project [https://mohanadaltarah.github.io/build-a-technical-documentation-page/](#).
-]
+You can view a live demo of the project [https://mohanadaltarah.github.io/build-a-technical-documentation-page].
+
 ## Project Overview
 
 This project serves as a technical reference for PHP fundamentals. It’s built with a simple and clean interface, offering a responsive navigation system and code snippets for easy understanding of PHP topics.
