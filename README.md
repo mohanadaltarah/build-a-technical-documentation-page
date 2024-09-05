@@ -55,7 +55,7 @@ To run this project locally:
 
 3. Start your server and navigate to the project directory in your browser:
    ```arduino
-   http://localhost/php-technical-notes
+   http://localhost/build-a-technical-documentation-page
 
 ## Usage
 
