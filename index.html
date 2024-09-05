@@ -1,0 +1,249 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>PHP Technical Notes</title>
+</head>
+<body>
+    <nav id="navbar">
+            <header>
+                PHP Technical Notes
+            </header>
+            
+            <ul>
+                <li><a href="#Introduction" class="nav-link">
+                Introduction
+            </a></li>
+            
+                <li><a href="#What_you_should_already_know?" class="nav-link">
+                What you should already know?
+            </a></li>
+            
+                <li><a href="#Post_and_Get_in_PHP" class="nav-link">
+                Post and Get in PHP
+            </a></li>
+            
+                <li><a href="#Arrays" class="nav-link">
+                Arrays
+            </a></li>
+                <li><a href="#Associative_Arrays" class="nav-link">
+                Associative Arrays
+            </a></li>
+            
+                <li><a href="#Input_Filters" class="nav-link">
+                Input Filters
+            </a></li>
+            
+                <li><a href="#Cookies" class="nav-link">
+                Cookies
+            </a></li>
+            
+                <li><a href="#Sessions" class="nav-link">
+                Sessions
+            </a></li>
+            
+                <li><a href="#Servers" class="nav-link">
+                Servers
+            </a></li>
+                <li><a href="#Hashing" class="nav-link">
+                Hashing
+            </a></li>
+            
+                <li><a href="#Connecting_MySQL" class="nav-link">
+                Connecting MySQL
+            </a></li>
+            
+            </ul>
+            
+        </nav>
+   <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <p class="content indent">As I entered a new Web Development job, it was mandatory to revisit
+                multiple topics that I have studied before. First of them is <span>PHP</span> and In this page, I would like to use what I learned to build a page that shows what I learned.
+            </p>
+        </section>
+        <section class="main-section" id="What_you_should_already_know?">
+            <header>What you should already know?</header>
+            <ul>
+                <li>What is a programming language?</li>
+                <li>How to use any IDE to write code</li>
+                <li>Basic HTML</li>
+                <li>Syntax of php</li>
+                <li>Variables in php</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Post_and_Get_in_PHP">
+            <header>Post and Get in PHP</header>
+            <h3 class="inner indent">Usage:</h3>
+            <p class="content indent"><span>Post</span> is used when security matters for the requests made while <span>Get</span> is used whenever passed data are not private and need to be secured! We are speaking about the difference between passing credentials (needs post method) and any other type of data.</p>
+        </section>
+        <section class="main-section" id="Arrays">
+            <header>Arrays</header>
+            <p class="content-indent">We use the following function to iterate through arrays in PHP:</p>
+            <pre><code>&lt;?php
+foreach($array_name as $item_name){
+    echo&quot;{$item_name}&quot;;
+}
+?&gt;</code></pre>
+            <p class="content-indent">We use the following functions to manipulate arrays in PHP:</p>
+            <pre><code>&lt;?php
+array_push($array_name, &quot;element&quot;);
+array_pop($array_name); //to remove the last element
+array_shift($array_name); //removes the first element and shifts the others
+array_reverse($array_name); //returns a reversed array that needs to be assigned and printed to be seen
+count($array_name); //displays the number of elements in the array
+?&gt;</code></pre>
+        </section>
+        <section class="main-section" id="Associative_Arrays">
+            <header>Associative Arrays</header>
+            <p class="content-indent">They are more like dictionaries in Python, incorporating the key → value data storing type.</p>
+            <pre><code>&lt;?php
+$array_name = array(&quot;key&quot; =&gt; &quot;value&quot;, ...);
+
+// To iterate through
+foreach($array_name as $key =&gt; $value){
+    echo&quot;{$key} = {$value} &lt;br&gt;&quot;;
+}
+
+// They have the same functions as normal arrays, except that there is a new one
+array_flip($array_name); // makes values keys and keys values
+?&gt;</code></pre>
+        </section>
+        <section class="main-section" id="Input_Filters">
+            <header>Input Filters</header>
+            <p class="content-indent">There are times where inputs might be inserted incorrectly or might contain an execution for a virus or an attack. To avoid this kind of problem, we can filter and sanitize input as follows:</p>
+            <pre><code>&lt;?php
+if (isset($_POST[&#39;login&#39;])) {
+    $username = filter_input(INPUT_POST, &quot;username&quot;, FILTER_SANITIZE_SPECIAL_CHARS);
+    $age = filter_input(INPUT_POST, &quot;age&quot;, FILTER_SANITIZE_NUMBER_INT);
+    $email = filter_input(INPUT_POST, &quot;email&quot;, FILTER_SANITIZE_EMAIL);
+    
+    echo&quot;You are {$username} and {$age} years old! &lt;br&gt; Your email is: {$email}&quot;;
+}
+?&gt;</code></pre>
+        </section>
+        <section class="main-section" id="Cookies">
+            <header>Cookies</header>
+            <p class="content-indent">Cookies are used for storing information about the user. They contain key → value data plus two additional arguments!</p>
+            <pre><code>&lt;?php
+setcookie(&quot;best_hobby&quot;, &quot;Learning&quot;, time() + 86400, &quot;/&quot;);
+setcookie(&quot;best_friend&quot;, &quot;AbuNaif&quot;, time() - 0, &quot;/&quot;);
+setcookie(&quot;best_info&quot;, &quot;the hereafter&quot;, time() + (86400 * 3), &quot;/&quot;);
+
+foreach ($_COOKIE as $key =&gt; $value) {
+    echo&quot;{$key} = {$value} &lt;br&gt;&quot;;
+}
+
+if (isset($_COOKIE[&quot;best_friend&quot;])) {
+    echo&quot;This was the name of your best friend: {$_COOKIE[&quot;best_friend&quot;]} &lt;br&gt;&quot;;
+} else {
+    echo&quot;I&#39;m unable to detect who is your best friend&quot;;
+}
+?&gt;</code></pre>
+        </section>
+        <section class="main-section" id="Sessions">
+            <header>Sessions</header>
+            <p class="content-indent">They are super global variables that we use to maintain user credentials visible across multiple pages.</p>
+            <pre><code>&lt;?php
+session_start();
+?&gt;
+
+&lt;!-- HTML code --&gt;
+
+&lt;?php
+$_SESSION[&quot;username&quot;]; // A session is an associative array that stores the credentials as a key and a value pair
+?&gt;</code></pre>
+        </section>
+        <section class="main-section" id="Servers">
+            <header>Servers</header>
+            <p class="content-indent">An associative array that stores many data about the web page. It can be used to retrieve or dynamically change some data like (form action) and also to validate some info like the request method of a form.</p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Form Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form action=&quot;&lt;?php echo htmlspecialchars($_SERVER[&quot;PHP_SELF&quot;]); ?&gt;&quot; method=&quot;post&quot;&gt;
+        &lt;h2&gt;This is the login page&lt;/h2&gt;
+        &lt;label&gt;Username:&lt;/label&gt; &lt;br&gt;
+        &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt; &lt;br&gt;
+        &lt;label&gt;Password:&lt;/label&gt; &lt;br&gt;
+        &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br&gt;
+        &lt;input type=&quot;submit&quot; name=&quot;login&quot; value=&quot;Log In&quot;&gt;&lt;br&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;?php
+foreach ($_SERVER as $key =&gt; $value) {
+    echo $key . &quot;=&gt;&quot; . $value . &quot;&lt;br&gt;&quot;;
+}
+
+if ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;) {
+    echo &quot;Hello&quot;;
+}
+?&gt;</code></pre>
+        </section>
+        <section class="main-section" id="Hashing">
+            <header>Hashing</header>
+            <p class="content-indent">Used to encrypt important data and hide it from 3rd parties by storing the password into symbols, letters, and characters after performing a mathematical operation (hashing algorithm).</p>
+            <pre><code>&lt;?php
+$password = &quot;Dawa2001&quot;;
+
+$hash = password_hash($password, PASSWORD_DEFAULT);
+
+if(password_verify($_POST[&quot;password&quot;], $hash)){
+    echo &quot;You&#39;re logged in &lt;br&gt;&quot;;
+    echo $hash;
+} else {
+    echo &quot;Password is wrong&quot;;
+}
+?&gt;</code></pre>
+        </section>
+        <section class="main-section" id="Connecting_MySQL">
+            <header>Connecting MySQL</header>
+            <pre><code>&lt;?php
+// This is all written in the database PHP file to insert, not retrieve!
+$db_server = &quot;localhost&quot;;
+$db_username = &quot;root&quot;;
+$db_password = &quot;&quot;;
+$db_database = &quot;podcastdb&quot;;
+$conn = &quot;&quot;;
+
+try {
+    $conn = mysqli_connect($db_server, $db_username, $db_password, $db_database);
+} catch(mysqli_sql_exception $exception) {
+    echo &quot;Couldn&#39;t establish a connection&quot;;
+}
+
+if ($conn) {
+    echo &quot;Connected successfully&quot;;
+}
+?&gt;
+
+&lt;?php
+// Operations upon finishing with the database
+include &#39;database.php&#39;;
+
+$sql = &quot;INSERT INTO episodes (title, date) VALUES (&#39;Youth from the pov', '2024-03-09')";
+
+try {
+    mysqli_query($conn, $sql);
+    echo "Episode was inserted successfully";
+
+} catch (mysqli_sql_exception $exception) {
+    echo "Couldn't insert Episode";
+}
+
+mysqli_close($conn);
+?>
+            </code></pre>
+        </section>
+   </main>
+</body>
+</html>
