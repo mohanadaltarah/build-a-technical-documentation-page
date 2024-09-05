@@ -72,7 +72,7 @@ The project is designed to be a technical reference guide for PHP. Simply naviga
 
 *(Include screenshots of the webpage)*
 
-![Home Page](link_to_screenshot)
+![Home Page](https://github.com/mohanadaltarah/build-a-technical-documentation-page/blob/main/Capture.PNG))
 *The main interface of the project.*
 
 ## License
