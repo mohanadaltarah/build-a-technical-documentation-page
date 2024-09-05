@@ -15,7 +15,7 @@ A personal project designed to showcase PHP technical knowledge through an inter
   
 ## Demo
 
-You can view a live demo of the project [https://mohanadaltarah.github.io/build-a-technical-documentation-page/](#).
+You can view a live demo of the project https://mohanadaltarah.github.io/build-a-technical-documentation-page/(#).
 
 ## Project Overview
 
